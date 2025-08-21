@@ -17,11 +17,11 @@ def isSpace(c):
     return c.isspace()
 
 def get_input():
-    if len(sys.argv) == 1:  # No argument provided
+    if len(sys.argv) == 1:
         text = input("Please enter a string: ")
-    elif len(sys.argv) == 2:  # Exactly one argument
+    elif len(sys.argv) == 2:
         text = sys.argv[1]
-    else:  # More than one argument
+    else:
         raise AssertionError("Only one argument is allowed!")
     return text
 
