@@ -1,21 +1,6 @@
 import sys
 
-def isPun(c):
-    punctuation_chars = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
-    return c in punctuation_chars
-
-def get_input():
-    if len(sys.argv) != 2:
-        raise AssertionError("bad arguments")
-
-    s = sys.argv[1]
-    # Check if the string contains punctuation
-    for c in s:
-        if isPun(c):
-            raise AssertionError("bad arguments")
-    return s
-
-def convert(s):
+def convert(phrase):
     MORSE_CODE = {
         # Letters
         "A": ".-",    "B": "-...",  "C": "-.-.",  "D": "-..",
@@ -36,17 +21,24 @@ def convert(s):
     }
 
     ret = []
-    for char in s.upper():
-        if char in MORSE_CODE:
-            ret.append(MORSE_CODE[char])
+    for i in range(len(phrase)):
+        c = phrase[i].upper()
+        if c in MORSE_CODE:
+            ret.append(MORSE_CODE[c])
         else:
-            raise AssertionError(f"Unsupported character: {char}")
+            raise AssertionError("arguments are bad")
+
     return " ".join(ret)
 
+
+
 def main():
-    s = get_input()
-    morse = convert(s)
-    print(morse)
+
+    if len(sys.argv) != 2:
+        raise AssertionError("bad arguments")
+    s = sys.argv[1]
+    converted = convert(s)
+    print(f"{converted}")
 
 if __name__ == "__main__":
     main()

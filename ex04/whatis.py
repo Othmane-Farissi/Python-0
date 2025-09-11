@@ -1,8 +1,15 @@
 import sys
 
-if len(sys.argv) > 1:
-    num = int(sys.argv[1])
-    if (num % 2) == 0:
-        print("I'M EVEN")
+try:
+    if len(sys.argv) == 2:
+        num = int(sys.argv[1])
+
+        if num % 2 == 0:
+            print("I'm EVEN!")
+        else:
+            print("I'm ODD!")
     else:
-        print("I'M ODD")
+        raise ValueError("one argument must be provided")
+except ValueError as e:
+    print(f"ERROR : {e}")
+
