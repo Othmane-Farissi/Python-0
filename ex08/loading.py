@@ -18,19 +18,20 @@ def format_time(seconds):
 
 def ft_tqdm(lst: range) -> None:
     """
-    Simulate a progress bar for iterating through a range.
+    Custom implementation of a progress bar similar to tqdm.
+
+    Iterates through the given range and displays:
+    - A progress bar that fills as items are processed
+    - Percentage of completion
+    - Current iteration count out of total
+    - Elapsed time and estimated time remaining (ETA)
+    - Processing speed in iterations per second
 
     Args:
         lst (range): The range to iterate through.
 
     Yields:
-        Any: The current item from the range.
-        is a keyword in Python used in the context of creating generators.
-        Generators are a way to create iterators, which are objects used to
-        iterate over a sequence of values without having to store all those
-        values in memory at once. Instead of generating allvalues and returning
-        them in one go, a generator yields one value at a time whenever the
-        yield statement is encountered.
+        Any: The current item from the input range.
     """
     total = len(lst)
     start_time = time.time()
@@ -57,6 +58,12 @@ def ft_tqdm(lst: range) -> None:
 
 
 def main():
+    """
+    Example usage of the custom ft_tqdm progress bar.
+
+    Iterates over a range of numbers (0–333) while displaying
+    the progress bar in the terminal.
+    """
     for _ in ft_tqdm(range(0, 333)):
         pass
 

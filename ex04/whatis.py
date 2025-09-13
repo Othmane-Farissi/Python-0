@@ -1,5 +1,6 @@
 import sys
 
+
 try:
     if len(sys.argv) == 2:
         num = int(sys.argv[1])
@@ -12,4 +13,3 @@ try:
         raise ValueError("one argument must be provided")
 except ValueError as e:
     print(f"ERROR : {e}")
-
